@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">siwrad-vision</string>
+    <string name="title_activity_main">siwrad-vision</string>
+    <string name="package_name">com.siwrad.vision</string>
+    <string name="custom_url_scheme">com.siwrad.vision</string>
+</resources>
