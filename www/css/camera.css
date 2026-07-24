@@ -30,3 +30,8 @@
     width:220px;
     margin-top:15px;
 }
+#btnBack{
+    width:120px;
+    margin-bottom:15px;
+    align-self:flex-start;
+}

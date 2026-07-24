@@ -42,3 +42,8 @@ window.onload = function () {
     }
 
 };
+const btnBack = document.getElementById("btnBack");
+
+btnBack.addEventListener("click", () => {
+    window.history.back();
+});
