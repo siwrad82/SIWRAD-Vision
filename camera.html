@@ -1,12 +1,13 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIWRAD Vision - Camera</title>
 
     <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/camera.css">
+    <link rel="stylesheet" href="css/camera.css">
+    </head>
 
 <body>
 
@@ -17,8 +18,28 @@
 <h2 id="stepTitle">
 Foto Depan (1/8)
 </h2>
+<button onclick="window.location.href='teach.html'">
+⬅ Kembali
+</button>
 
-<video id="cameraPreview" autoplay playsinline></video>
+
+<div class="camera-box">
+    <div class="camera-box">
+    <video id="cameraPreview" autoplay playsinline></video>
+    </div>
+</div>
+
+<div class="camera-controls">
+
+    <button id="btnCapture">
+        📸 Ambil Foto
+    </button>
+
+    <button id="btnNext">
+        ➡ Foto Berikutnya
+    </button>
+
+</div>
 
 <br><br>
 
@@ -41,4 +62,3 @@ Foto Depan (1/8)
 
 </body>
 </html>
-<- Environment siap membuat APK TEST -->
