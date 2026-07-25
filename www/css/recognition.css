@@ -1,0 +1,76 @@
+/*
+====================================
+SIWRAD Vision
+Recognition Style
+Version : 1.0.0
+Build   : 013
+====================================
+*/
+
+body{
+    background:#0d1117;
+    color:white;
+    display:block;
+    padding:20px;
+}
+
+.recognition-page{
+    max-width:480px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.recognition-page h1{
+    color:#00d4ff;
+    margin-bottom:20px;
+}
+
+#resultImage{
+    width:100%;
+    max-width:320px;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid #555;
+    background:#222;
+    margin-bottom:20px;
+}
+
+.result-card{
+    background:#1b1b1b;
+    border:2px solid #444;
+    border-radius:12px;
+    padding:15px;
+    margin-top:20px;
+}
+
+.result-card h2{
+    color:#00d4ff;
+    margin-bottom:10px;
+}
+
+.result-card p{
+    margin:8px 0;
+    color:#ddd;
+}
+
+#btnRetry,
+#btnFinish{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#btnRetry{
+    background:#0984e3;
+    color:white;
+}
+
+#btnFinish{
+    background:#00b894;
+    color:white;
+}

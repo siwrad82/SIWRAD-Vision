@@ -68,6 +68,6 @@ document.getElementById("btnSave").onclick = function(){
 
     alert("Produk berhasil disimpan.");
 
-    window.location.href = "products.html";
+    window.location.href = "recognize.html";
 
 };

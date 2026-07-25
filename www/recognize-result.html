@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIWRAD Vision - Recognition</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/camera.css">
+
+</head>
+
+<body>
+
+<div class="form-page">
+
+<h1>🔍 Recognition Engine</h1>
+
+<p>Arahkan kamera ke produk.</p>
+
+<div class="camera-box">
+
+<video
+id="cameraPreview"
+autoplay
+playsinline>
+</video>
+
+</div>
+
+<br>
+
+<button id="btnRecognize">
+
+🔍 Kenali Produk
+
+</button>
+
+<br><br>
+
+<button id="btnBack">
+
+🏠 Dashboard
+
+</button>
+
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/cameraEngine.js"></script>
+<script src="js/recognizeEngine.js"></script>
+
+</body>
+</html>
