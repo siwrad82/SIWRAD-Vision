@@ -33,9 +33,37 @@ if (products.length > 0) {
 
     resultDataset.innerHTML = "Dataset : " + totalPhotos + " Foto";
     resultStatus.innerHTML = "✅ Produk Dikenali";
+const rankingList = document.getElementById("rankingList");
 
+let html = "";
+
+result.ranking.slice(0, 3).forEach(function(item, index){
+
+    const medal = ["🥇", "🥈", "🥉"];
+
+    html += `
+<div class="ranking-card">
+
+<div class="ranking-title">
+${medal[index]} ${item.name}
+</div>
+
+<div>
+Kategori : ${item.category}
+</div>
+
+<div class="ranking-score">
+Kemiripan : ${item.score}%
+</div>
+
+</div>
+`;
+
+});
+
+rankingList.innerHTML = html;
 } else {
-
+document.getElementById("rankingList").innerHTML = "";
     resultImage.removeAttribute("src");
     resultName.innerHTML = "Belum ada dataset.";
     resultCategory.innerHTML = "";

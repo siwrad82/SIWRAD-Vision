@@ -8,8 +8,7 @@ Build   : 014
 */
 
 const MatchingEngine = {
-
-    match(scanData){
+match(scanData){
 
     const products = DatabaseEngine.getProducts();
 
@@ -17,40 +16,15 @@ const MatchingEngine = {
         return null;
     }
 
-    let bestProduct = null;
-    let bestScore = -1;
-
-    products.forEach(function(product){
-
-        let score = 0;
-
-        if(product.photos){
-
-            Object.values(product.photos).forEach(function(photo){
-
-                if(photo){
-                    score++;
-                }
-
-            });
-
-        }
-
-        if(score > bestScore){
-
-            bestScore = score;
-            bestProduct = product;
-
-        }
-
-    });
+    const ranking = SimilarityEngine.rank(scanData, products);
 
     return {
 
-        product: bestProduct,
-
-        similarity: Math.round((bestScore / 8) * 100)
+        product: ranking[0].product,
+        similarity: ranking[0].score,
+        ranking: ranking
 
     };
 
-    }
+}
+    
