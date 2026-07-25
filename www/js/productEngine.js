@@ -53,3 +53,10 @@ document.getElementById("btnAddProduct").onclick = function(){
     window.location.href = "dashboard.html";
 
 };
+const btnDashboard = document.getElementById("btnDashboard");
+
+if(btnDashboard){
+    btnDashboard.onclick = function(){
+        window.location.href = "dashboard.html";
+    };
+}
