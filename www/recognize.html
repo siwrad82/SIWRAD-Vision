@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIWRAD Vision - Recognition Result</title>
+
+<link rel="stylesheet" href="css/recognition.css">
+</head>
+
+<body>
+
+<div class="recognition-page">
+
+<h1>🔍 Recognition Result</h1>
+
+<img id="resultImage" alt="Hasil Scan">
+
+<div class="result-card">
+
+<h2 id="resultName">Menganalisis...</h2>
+
+<p id="resultCategory"></p>
+
+<p id="resultSimilarity"></p>
+
+<p id="resultStatus"></p>
+
+</div>
+
+<button id="btnRetry">
+🔄 Scan Ulang
+</button>
+
+<button id="btnFinish">
+✅ Selesai
+</button>
+
+</div>
+
+<script src="js/databaseEngine.js"></script>
+<script src="js/recognitionEngine.js"></script>
+
+</body>
+</html>
