@@ -1,0 +1,88 @@
+/*
+====================================
+SIWRAD Vision
+Product Detail Style
+Version : 1.0.0
+Build   : 012
+====================================
+*/
+
+body{
+    background:#0d1117;
+    color:white;
+    display:block;
+    padding:20px;
+}
+
+.detail-page{
+    max-width:480px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.detail-page h1{
+    color:#00d4ff;
+    margin-bottom:20px;
+}
+
+#productImage{
+    width:100%;
+    max-width:320px;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid #555;
+    background:#222;
+    margin-bottom:20px;
+}
+
+#productName{
+    color:#00d4ff;
+    margin-bottom:10px;
+}
+
+#productCategory,
+#productPrice,
+#productBarcode{
+    color:#ddd;
+    margin:8px 0;
+    font-size:16px;
+}
+
+#photoGallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:20px;
+}
+
+#photoGallery img{
+    width:100%;
+    border-radius:10px;
+    border:1px solid #555;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+#btnEdit{
+    background:#0984e3;
+    color:white;
+}
+
+#btnDelete{
+    background:#d63031;
+    color:white;
+}
+
+#btnBack{
+    background:#444;
+    color:white;
+}

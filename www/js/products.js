@@ -1,50 +1,49 @@
 /*
 ====================================
 SIWRAD Vision
-Dataset Manager
+Products Engine
 Version : 1.0.0
-Build   : 005
+Build   : 012
 ====================================
 */
 
 function loadProducts(){
 
-    const list=document.getElementById("productList");
+    const list = document.getElementById("productList");
 
-    const data=ProductKnowledge.getProducts();
+    const products = DatabaseEngine.getProducts();
 
-    if(data.length===0){
+    if(products.length === 0){
 
-        list.innerHTML="<p>Belum ada dataset produk.</p>";
+        list.innerHTML = "<p>Belum ada produk.</p>";
 
         return;
 
     }
 
-    let html="";
+    let html = "";
 
-    data.forEach(function(product){
+    products.forEach(function(product){
 
-        html+=`
+        html += `
+        <div class="product-card"
+             onclick="window.location.href='product-detail.html'">
 
-        <div style="border:1px solid #555;padding:10px;margin:10px;border-radius:10px;">
+            <h3>📦 ${product.name}</h3>
 
-        <b>${product.identity.nama}</b><br>
+            <p>Kategori : ${product.category}</p>
 
-        ID : ${product.id}<br>
+            <p>Harga : Rp ${product.price}</p>
 
-        Status : ${product.dataset.status}<br>
-
-        Foto : ${product.dataset.totalFoto}/8
+            <p>Dibuat : ${product.createdAt}</p>
 
         </div>
-
         `;
 
     });
 
-    list.innerHTML=html;
+    list.innerHTML = html;
 
 }
 
-window.onload=loadProducts;
+window.onload = loadProducts;
