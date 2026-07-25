@@ -33,15 +33,7 @@ if (products.length > 0) {
 
     resultDataset.innerHTML = "Dataset : " + totalPhotos + " Foto";
     resultStatus.innerHTML = "✅ Produk Dikenali";
-const rankingList = document.getElementById("rankingList");
 
-let html = "";
-
-result.ranking.slice(0, 3).forEach(function(item, index){
-
-    const medal = ["🥇", "🥈", "🥉"];
-
-    html += `
 <div class="ranking-card">
 
 <div class="ranking-title">
