@@ -70,7 +70,9 @@ nextButton.onclick = function(){
 
     } else {
 
-        alert("Semua foto sudah selesai");
+    alert("Semua foto sudah selesai.");
+
+    window.location.href = "review.html";
 
     }
 
