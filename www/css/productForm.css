@@ -1,0 +1,66 @@
+/*
+====================================
+SIWRAD Vision
+Product Form Style
+Version : 1.0.0
+Build   : 011
+====================================
+*/
+
+body{
+    background:#0d1117;
+    color:white;
+    display:block;
+    padding:20px;
+}
+
+.form-page{
+    max-width:450px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.form-page h1{
+    color:#00d4ff;
+    margin-bottom:10px;
+}
+
+.form-page p{
+    color:#cccccc;
+    margin-bottom:20px;
+}
+
+.form-page input{
+    width:100%;
+    padding:14px;
+    border:1px solid #444;
+    border-radius:10px;
+    background:#1b1b1b;
+    color:white;
+    font-size:16px;
+}
+
+.form-page input::placeholder{
+    color:#888;
+}
+
+#btnStartCamera,
+#btnBack{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#btnStartCamera{
+    background:#00b894;
+    color:white;
+}
+
+#btnBack{
+    margin-top:12px;
+    background:#444;
+    color:white;
+}

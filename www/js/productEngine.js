@@ -50,7 +50,7 @@ loadProducts();
 
 document.getElementById("btnAddProduct").onclick = function(){
 
-    window.location.href = "dashboard.html";
+    window.location.href = "product-form.html";
 
 };
 const btnDashboard = document.getElementById("btnDashboard");
