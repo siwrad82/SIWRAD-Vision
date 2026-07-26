@@ -20,10 +20,5 @@ function startCamera() {
     localStorage.setItem("productName", productName);
     localStorage.setItem("productCategory", productCategory);
 
-    window.location.href = "camera.html";
-}
-
-function saveProduct() {
-
-    alert("Produk berhasil disimpan.");
+    window.location.href = "camera.html?mode=training";
 }

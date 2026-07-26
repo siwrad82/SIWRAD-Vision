@@ -65,13 +65,23 @@ if (typeof cameraMode !== "undefined" &&
     return;
 }
     localStorage.setItem(
-        getCurrentStep(),
-        photoData
-    );
+    getCurrentStep(),
+    photoData
+);
 
-    alert(getCurrentStep() + " berhasil disimpan");
+// Otomatis lanjut ke foto berikutnya
+if (nextStep()) {
 
-};
+    document.getElementById("stepTitle").innerHTML =
+        getCurrentStep() + " (" + (currentStep + 1) + "/8)";
+
+} else {
+
+    alert("Semua foto berhasil diambil.");
+
+    window.location.href = "review.html";
+
+}
 
 
 nextButton.onclick = function(){
