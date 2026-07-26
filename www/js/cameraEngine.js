@@ -8,7 +8,17 @@ Build   : 007
 */
 
 const video = document.getElementById("cameraPreview");
+/*
+====================================
+Camera Mode
+Build : 016
+====================================
+*/
 
+const urlParams = new URLSearchParams(window.location.search);
+
+const cameraMode =
+    urlParams.get("mode") || "training";
 async function startCamera() {
 
     try {

@@ -6,7 +6,15 @@ Version : 1.0.2
 Build   : 015
 ====================================
 */
+/*
+====================================
+Recognition Flow v2
+Build : 016
+====================================
+*/
 
+const recognizePhoto =
+    localStorage.getItem("recognizePhoto");
 const resultImage = document.getElementById("resultImage");
 const resultName = document.getElementById("resultName");
 const resultCategory = document.getElementById("resultCategory");
@@ -15,7 +23,11 @@ const resultDataset = document.getElementById("resultDataset");
 const resultStatus = document.getElementById("resultStatus");
 const rankingList = document.getElementById("rankingList");
 
-const result = MatchingEngine.match({});
+const result = MatchingEngine.match({
+
+    photo: recognizePhoto
+
+});
 
 if (result) {
 
@@ -27,12 +39,30 @@ if (result) {
 
     resultName.textContent = "📦 " + product.name;
     resultCategory.textContent = "Kategori : " + product.category;
-    resultSimilarity.textContent = "Kemiripan : " + result.similarity + "%";
+    resultSimilarity.textContent =
+    "Kemiripan : " +
+    result.similarity +
+    "%";
 
     const totalPhotos = Object.values(product.photos || {})
         .filter(photo => photo).length;
 
-    resultDataset.textContent = "Dataset : " + totalPhotos + " Foto";
+    resultDataset.textContent =
+    "Dataset : " +
+    result.totalProduct +
+    " Produk";
+      const resultCandidate =
+    document.getElementById("resultCandidate");
+
+if(resultCandidate){
+
+    resultCandidate.textContent =
+        "Top Candidate : " +
+        result.totalCandidate;
+
+}
+    result.totalProduct +
+    " Produk";
     resultStatus.textContent = "✅ Produk Dikenali";
 
     if (rankingList) {

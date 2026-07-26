@@ -19,12 +19,22 @@ const MatchingEngine = {
 
         const ranking = SimilarityEngine.rank(scanData, products);
 
-        return {
-            product: ranking[0].product,
-            similarity: ranking[0].score,
-            ranking: ranking
-        };
+        const scanTime = Date.now();
 
-    }
+return {
+
+    product: ranking[0].product,
+
+    similarity: ranking[0].score,
+
+    ranking: ranking,
+
+    totalProduct: products.length,
+
+    totalCandidate: ranking.length,
+
+    scanTime: scanTime
 
 };
+
+    

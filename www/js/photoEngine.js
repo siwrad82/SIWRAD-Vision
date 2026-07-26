@@ -50,7 +50,20 @@ captureButton.onclick = function(){
     ctx.drawImage(video, 0, 0);
 
     const photoData = canvas.toDataURL("image/jpeg");
+// Recognition Mode (1 Foto)
 
+if (typeof cameraMode !== "undefined" &&
+    cameraMode === "recognize") {
+
+    localStorage.setItem(
+        "recognizePhoto",
+        photoData
+    );
+
+    window.location.href = "recognize.html";
+
+    return;
+}
     localStorage.setItem(
         getCurrentStep(),
         photoData

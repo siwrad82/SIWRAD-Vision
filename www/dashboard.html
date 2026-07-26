@@ -18,20 +18,22 @@
 
     <br><br>
 
-    <button onclick="goRecognize()">📷 Kenali Produk</button>
-
     <br><br>
+<div class="dashboard-menu">
 
-    <button onclick="goTeach()">➕ Ajarkan Produk</button>
+    <button id="btnTraining" class="menu-button">
+        📚 Ajarkan Produk
+    </button>
 
-    <br><br>
+    <button id="btnRecognition" class="menu-button">
+        🔍 Kenali Produk
+    </button>
 
-    <button onclick="goProducts()">📚 Daftar Produk</button>
+    <button id="btnSettings" class="menu-button">
+        ⚙️ Pengaturan
+    </button>
 
-    <br><br>
-
-    <button onclick="comingSoon()">⚙ Pengaturan</button>
-
+</div>
     <br><br>
 
     <p class="build">
@@ -43,6 +45,42 @@
 </div>
 
 <script src="js/app.js"></script>
+<div class="dashboard-menu">
+
+    <button id="btnTraining" class="menu-button">
+        📚 Ajarkan Produk
+    </button>
+
+    <button id="btnRecognition" class="menu-button">
+        🔍 Kenali Produk
+    </button>
+
+    <button id="btnSettings" class="menu-button">
+        ⚙️ Pengaturan
+    </button>
+
+</div>
+
+<p class="build">
+    Version 2.0.0<br>
+    Build 016
+</p>
+
+<script>
+
+document.getElementById("btnTraining").onclick = function () {
+    window.location.href = "addProduct.html";
+};
+
+document.getElementById("btnRecognition").onclick = function () {
+    window.location.href = "camera.html?mode=recognize";
+};
+
+document.getElementById("btnSettings").onclick = function () {
+    window.location.href = "settings.html";
+};
+
+</script>
 
 </body>
 </html>
