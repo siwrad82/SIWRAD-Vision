@@ -62,7 +62,7 @@ const SimilarityEngine = {
 
         });
 
-        return results;
+                return results;
 
     }
 

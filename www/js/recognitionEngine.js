@@ -2,8 +2,8 @@
 ====================================
 SIWRAD Vision
 Recognition Engine
-Version : 1.0.1
-Build   : 014.1
+Version : 1.0.2
+Build   : 015
 ====================================
 */
 
@@ -24,51 +24,41 @@ if (products.length > 0) {
         resultImage.src = product.photos.depan;
     }
 
-    resultName.innerHTML = "📦 " + product.name;
-    resultCategory.innerHTML = "Kategori : " + product.category;
-    resultSimilarity.innerHTML = "Kemiripan : 100%";
+    resultName.textContent = "📦 " + product.name;
+    resultCategory.textContent = "Kategori : " + product.category;
+    resultSimilarity.textContent = "Kemiripan : 100%";
 
     const totalPhotos = Object.values(product.photos || {})
         .filter(photo => photo).length;
 
-    resultDataset.innerHTML = "Dataset : " + totalPhotos + " Foto";
-    resultStatus.innerHTML = "✅ Produk Dikenali";
+    resultDataset.textContent = "Dataset : " + totalPhotos + " Foto";
+    resultStatus.textContent = "✅ Produk Dikenali";
 
-<div class="ranking-card">
+    const rankingList = document.getElementById("rankingList");
+    if (rankingList) {
+        rankingList.innerHTML = "";
+    }
 
-<div class="ranking-title">
-${medal[index]} ${item.name}
-</div>
-
-<div>
-Kategori : ${item.category}
-</div>
-
-<div class="ranking-score">
-Kemiripan : ${item.score}%
-</div>
-
-</div>
-`;
-
-});
-
-rankingList.innerHTML = html;
 } else {
-document.getElementById("rankingList").innerHTML = "";
+
     resultImage.removeAttribute("src");
-    resultName.innerHTML = "Belum ada dataset.";
-    resultCategory.innerHTML = "";
-    resultSimilarity.innerHTML = "";
-    resultDataset.innerHTML = "";
-    resultStatus.innerHTML = "Tambahkan dataset terlebih dahulu.";
+    resultName.textContent = "Belum ada dataset.";
+    resultCategory.textContent = "";
+    resultSimilarity.textContent = "";
+    resultDataset.textContent = "";
+    resultStatus.textContent = "Tambahkan dataset terlebih dahulu.";
+
+    const rankingList = document.getElementById("rankingList");
+    if (rankingList) {
+        rankingList.innerHTML = "";
+    }
 
 }
 
-document.getElementById("btnRetry").onclick = function () {
+document.getElementById("btnRetry").addEventListener("click", function () {
     window.location.href = "camera.html";
-};
+});
 
-document.getElementById("btnFinish").onclick = function () {
+document.getElementById("btnFinish").addEventListener("click", function () {
     window.location.href = "dashboard.html";
-};
+});
