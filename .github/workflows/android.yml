@@ -3,8 +3,8 @@ name: Android Build
 on:
   push:
     branches:
-  - main
-  - build-016
+       - main
+       - build-016
   workflow_dispatch:
 
 jobs:
