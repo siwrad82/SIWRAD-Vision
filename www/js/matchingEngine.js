@@ -19,12 +19,9 @@ match(scanData){
     const ranking = SimilarityEngine.rank(scanData, products);
 
     return {
-
         product: ranking[0].product,
         similarity: ranking[0].score,
         ranking: ranking
-
     };
 
 }
-};

@@ -13,12 +13,13 @@ const resultCategory = document.getElementById("resultCategory");
 const resultSimilarity = document.getElementById("resultSimilarity");
 const resultDataset = document.getElementById("resultDataset");
 const resultStatus = document.getElementById("resultStatus");
+const rankingList = document.getElementById("rankingList");
 
-const products = DatabaseEngine.getProducts();
+const result = MatchingEngine.match({});
 
-if (products.length > 0) {
+if (result) {
 
-    const product = products[products.length - 1];
+    const product = result.product;
 
     if (product.photos && product.photos.depan) {
         resultImage.src = product.photos.depan;
@@ -26,7 +27,7 @@ if (products.length > 0) {
 
     resultName.textContent = "📦 " + product.name;
     resultCategory.textContent = "Kategori : " + product.category;
-    resultSimilarity.textContent = "Kemiripan : 100%";
+    resultSimilarity.textContent = "Kemiripan : " + result.similarity + "%";
 
     const totalPhotos = Object.values(product.photos || {})
         .filter(photo => photo).length;
@@ -34,9 +35,35 @@ if (products.length > 0) {
     resultDataset.textContent = "Dataset : " + totalPhotos + " Foto";
     resultStatus.textContent = "✅ Produk Dikenali";
 
-    const rankingList = document.getElementById("rankingList");
     if (rankingList) {
-        rankingList.innerHTML = "";
+
+        let html = "";
+        const medal = ["🥇","🥈","🥉"];
+
+        result.ranking.slice(0,3).forEach(function(item,index){
+
+            html += `
+<div class="ranking-card">
+
+<div class="ranking-title">
+${medal[index]} ${item.product.name}
+</div>
+
+<div>
+Kategori : ${item.product.category}
+</div>
+
+<div class="ranking-score">
+Kemiripan : ${item.score}%
+</div>
+
+</div>
+`;
+
+        });
+
+        rankingList.innerHTML = html;
+
     }
 
 } else {
@@ -48,7 +75,6 @@ if (products.length > 0) {
     resultDataset.textContent = "";
     resultStatus.textContent = "Tambahkan dataset terlebih dahulu.";
 
-    const rankingList = document.getElementById("rankingList");
     if (rankingList) {
         rankingList.innerHTML = "";
     }
