@@ -2,8 +2,9 @@
 ====================================
 SIWRAD Vision
 Photo Engine
-Version : 1.0.0
-Build   : 002
+Version : 2.0.0
+Build   : 016.14
+Codename: Stabilization
 ====================================
 */
 
@@ -19,51 +20,94 @@ const PhotoSteps = [
 ];
 
 let currentStep = 0;
-const stepTitle = document.getElementById("stepTitle");
-function getCurrentStep() {
-    return PhotoSteps[currentStep];
-}
 
-function nextStep() {
-    if (currentStep < PhotoSteps.length - 1) {
-        currentStep++;
-        return true;
-    }
-    return false;
-}
+const captureButton = document.getElementById("btnCapture");
+const stepTitle = document.getElementById("stepTitle");
+
 function updateStepTitle() {
 
-    stepTitle.innerHTML =
-        getCurrentStep() +
-        " (" + (currentStep + 1) + "/8)";
+    if (stepTitle) {
+
+        stepTitle.innerHTML =
+            PhotoSteps[currentStep] +
+            " (" + (currentStep + 1) + "/8)";
+
+    }
 
 }
 
-    cameraMode === "recognize") {
+function saveCurrentPhoto(photoData) {
 
     localStorage.setItem(
-        "recognizePhoto",
+        PhotoSteps[currentStep],
         photoData
     );
 
-    window.location.href = "recognize.html";
-
-    return;
 }
-    localStorage.setItem(
-    getCurrentStep(),
-    photoData
-);
 
-// Otomatis lanjut ke foto berikutnya
-if (nextStep()) {
-updateStepTitle();
-    } else {
+captureButton.onclick = function () {
 
-    alert("Semua foto sudah selesai.");
+    if (!video || !video.srcObject) {
 
-    window.location.href = "review.html";
+        alert("Camera belum siap.");
+        return;
 
     }
+
+    const canvas = document.createElement("canvas");
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.drawImage(video, 0, 0);
+
+    const photoData = canvas.toDataURL("image/jpeg");
+
+    // ==========================
+    // Recognition Mode
+    // ==========================
+
+    if (cameraMode === "recognize") {
+
+        localStorage.setItem(
+            "recognizePhoto",
+            photoData
+        );
+
+        stopCamera();
+
+        window.location.href = "recognize.html";
+
+        return;
+
+    }
+
+    // ==========================
+    // Training Mode
+    // ==========================
+
+    saveCurrentPhoto(photoData);
+
+    currentStep++;
+
+    if (currentStep >= PhotoSteps.length) {
+
+        stopCamera();
+
+        window.location.href = "review.html";
+
+        return;
+
+    }
+
+    updateStepTitle();
+
+};
+
+window.onload = function () {
+
+    updateStepTitle();
 
 };

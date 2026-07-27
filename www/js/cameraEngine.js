@@ -2,50 +2,27 @@
 ====================================
 SIWRAD Vision
 Camera Engine
-Version : 1.0.0
-Build   : 016
-Codename: Recognition Flow v2
+Version : 2.0.0
+Build   : 016.14
+Codename: Stabilization
 ====================================
 */
 
 const video = document.getElementById("cameraPreview");
 const btnBack = document.getElementById("btnBack");
 
-/*
-====================================
-Camera Mode
-====================================
-*/
-
-const urlParams = new URLSearchParams(window.location.search);
-
-const cameraMode = urlParams.get("mode") || "training";
-
-/*
-====================================
-Start Camera
-====================================
-*/
+let cameraStream = null;
 
 async function startCamera() {
 
-    console.log("Camera Mode :", cameraMode);
-
     if (!video) {
-        alert("Video Preview tidak ditemukan.");
-        return;
-    }
-
-    if (!navigator.mediaDevices ||
-        !navigator.mediaDevices.getUserMedia) {
-
-        alert("Browser tidak mendukung Camera API.");
+        alert("Camera Preview tidak ditemukan.");
         return;
     }
 
     try {
 
-        const stream = await navigator.mediaDevices.getUserMedia({
+        cameraStream = await navigator.mediaDevices.getUserMedia({
 
             video: {
                 facingMode: {
@@ -57,18 +34,18 @@ async function startCamera() {
 
         });
 
-        video.srcObject = stream;
+        video.srcObject = cameraStream;
 
         await video.play();
 
-        console.log("Camera berhasil dibuka.");
+        console.log("Camera Ready");
 
     } catch (err) {
 
         console.error(err);
 
         alert(
-            "Kamera tidak dapat dibuka.\n\n" +
+            "Kamera gagal dibuka.\n\n" +
             err.name +
             "\n" +
             err.message
@@ -78,33 +55,29 @@ async function startCamera() {
 
 }
 
-/*
-====================================
-Page Loaded
-====================================
-*/
+function stopCamera() {
+
+    if (!cameraStream) return;
+
+    cameraStream.getTracks().forEach(track => {
+
+        track.stop();
+
+    });
+
+}
 
 window.onload = function () {
 
     startCamera();
 
-    if (typeof SIWRAD !== "undefined") {
-
-        SIWRAD.enableEngine("camera");
-
-    }
-
 };
-
-/*
-====================================
-Back Button
-====================================
-*/
 
 if (btnBack) {
 
     btnBack.onclick = function () {
+
+        stopCamera();
 
         window.history.back();
 

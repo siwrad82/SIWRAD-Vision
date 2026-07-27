@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIWRAD Vision - Camera</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/camera.css">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SIWRAD Vision - Camera</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/camera.css">
+
 </head>
 
-<>
-<button id="btnBack">← Kembali</button>
+<body>
+
 <div class="camera-page">
+
+<button id="btnBack">
+← Kembali
+</button>
 
 <h1>📷 Camera Engine</h1>
 
@@ -20,7 +30,14 @@ Foto Depan (1/8)
 </h2>
 
 <div class="camera-box">
-    <video id="cameraPreview" autoplay playsinline></video>
+
+<video
+id="cameraPreview"
+autoplay
+playsinline
+muted>
+</video>
+
 </div>
 
 <button id="btnCapture">
@@ -31,8 +48,9 @@ Foto Depan (1/8)
 
 <script src="js/core.js"></script>
 <script src="js/product.js"></script>
-<script src="js/photoEngine.js"></script>
 <script src="js/cameraEngine.js"></script>
+<script src="js/photoEngine.js"></script>
 
 </body>
+
 </html>
