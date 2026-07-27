@@ -34,12 +34,11 @@ async function startCamera() {
 
         console.log("Camera berhasil dibuka.");
 
-    } catch (err) {
+    catch (err) {
 
-        alert("Kamera tidak dapat dibuka.");
-        console.error(err);
-
-    }
+    alert("Kamera tidak dapat dibuka.\n\n" + err.message);
+    console.error(err);
+ }
 
 }
 
