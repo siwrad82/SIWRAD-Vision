@@ -36,7 +36,7 @@ function resetSteps() {
     currentStep = 0;
 }
 const captureButton = document.getElementById("btnCapture");
-const nextButton = document.getElementById("btnNext");
+
 
 captureButton.onclick = function(){
 
@@ -72,24 +72,6 @@ if (typeof cameraMode !== "undefined" &&
 // Otomatis lanjut ke foto berikutnya
 if (nextStep()) {
 
-    document.getElementById("stepTitle").innerHTML =
-        getCurrentStep() + " (" + (currentStep + 1) + "/8)";
-
-} else {
-
-    alert("Semua foto berhasil diambil.");
-
-    window.location.href = "review.html";
-
-}
-
-
-nextButton.onclick = function(){
-
-    if(nextStep()){
-
-        document.getElementById("stepTitle").innerHTML =
-        getCurrentStep() + " (" + (currentStep + 1) + "/8)";
 
     } else {
 
