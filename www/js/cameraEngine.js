@@ -19,7 +19,11 @@ const urlParams = new URLSearchParams(window.location.search);
 
 const cameraMode =
     urlParams.get("mode") || "training";
+
 async function startCamera() {
+
+    console.log("Mode :", cameraMode);
+    console.log("Video :", video);
 
     try {
 
@@ -34,8 +38,14 @@ async function startCamera() {
 
         console.log("Camera berhasil dibuka.");
 
-    catch (err) {
+    } catch (err) {
 
+        alert("Kamera tidak dapat dibuka.\n\n" + err.message);
+        console.error(err);
+
+    }
+
+}
     alert("Kamera tidak dapat dibuka.\n\n" + err.message);
     console.error(err);
  }

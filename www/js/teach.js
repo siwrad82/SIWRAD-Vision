@@ -21,4 +21,5 @@ function startCamera() {
     localStorage.setItem("productCategory", productCategory);
 
     window.location.href = "camera.html?mode=training";
+
 }
