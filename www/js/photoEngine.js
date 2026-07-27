@@ -19,7 +19,7 @@ const PhotoSteps = [
 ];
 
 let currentStep = 0;
-
+const stepTitle = document.getElementById("stepTitle");
 function getCurrentStep() {
     return PhotoSteps[currentStep];
 }
@@ -31,28 +31,14 @@ function nextStep() {
     }
     return false;
 }
+function updateStepTitle() {
 
-function resetSteps() {
-    currentStep = 0;
+    stepTitle.innerHTML =
+        getCurrentStep() +
+        " (" + (currentStep + 1) + "/8)";
+
 }
-const captureButton = document.getElementById("btnCapture");
 
-
-captureButton.onclick = function(){
-
-    const canvas = document.createElement("canvas");
-
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-
-    const ctx = canvas.getContext("2d");
-
-    ctx.drawImage(video, 0, 0);
-
-    const photoData = canvas.toDataURL("image/jpeg");
-// Recognition Mode (1 Foto)
-
-if (typeof cameraMode !== "undefined" &&
     cameraMode === "recognize") {
 
     localStorage.setItem(
@@ -71,8 +57,7 @@ if (typeof cameraMode !== "undefined" &&
 
 // Otomatis lanjut ke foto berikutnya
 if (nextStep()) {
-
-
+updateStepTitle();
     } else {
 
     alert("Semua foto sudah selesai.");
