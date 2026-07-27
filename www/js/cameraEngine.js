@@ -12,7 +12,7 @@ const video = document.getElementById("cameraPreview");
 const btnBack = document.getElementById("btnBack");
 
 let cameraStream = null;
-
+let cameraReady = false;
 async function startCamera() {
 
     if (!video) {
@@ -37,7 +37,7 @@ async function startCamera() {
         video.srcObject = cameraStream;
 
         await video.play();
-
+cameraReady = true;
         console.log("Camera Ready");
 
     } catch (err) {
@@ -56,7 +56,7 @@ async function startCamera() {
 }
 
 function stopCamera() {
-
+cameraReady = false;
     if (!cameraStream) return;
 
     cameraStream.getTracks().forEach(track => {
